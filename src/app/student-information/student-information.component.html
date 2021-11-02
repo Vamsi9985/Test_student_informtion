@@ -1,0 +1,106 @@
+<!-- Nav bar starting-->
+<div class="container">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" (click)="tablestatus=true" >Student Information</a>
+        <button type="button" (click)="clickAddStudent()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add new student Information</button>
+
+      </div>
+    </nav>
+  </div>
+  <!-- Nav bar ending-->
+  <!-- student information table start-->
+  <table class="table mt-3"  *ngIf="tablestatus">
+    <thead>
+      <tr>
+        <th scope="col">Student ID</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Department</th>
+        <th scope="col">Year Of Join</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Edit/Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let row of studentData">
+        <td>{{row.student_Id}}</td>
+        <td>{{row.student_Name}}</td>
+        <td>{{row.student_Date_Of_Birth}}</td>
+        <td>{{row.student_Department}}</td>
+        <td>{{row.student_joining_Year}}</td>
+        <td>{{row.student_Contact_Number}}</td>
+        <td>
+            <button type="button" (click)="onEdit(row)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary">Edit</button>
+            <button type="button" (click)="deleteStudent(row)" class="btn btn-danger mx-3">Delete</button>
+            
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+  <!-- student information table start-->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Student Information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <!-- Form start-->
+            <form [formGroup]="formvalue">
+                <div class="row mb-3">
+                    <label for="input_student_ID" class="col-sm-2 col-form-label">Student ID</label>
+                    <div class="col-sm-10">
+                      <input type="text"  formControlName="student_Id" class="form-control" id="input_student_ID">
+                    </div>
+               </div>
+                <div class="row mb-3">
+                  <label for="input_student_Name" class="col-sm-2 col-form-label">Student Name</label>
+                <div class="col-sm-10">
+                    <input type="text" formControlName="student_Name" class="form-control" id="input_student_name">
+                </div>
+            </div> 
+                 <div class="row mb-3">
+                    <label for="input_student_Date_Of_Birth" class="col-sm-2 col-form-label">Student Date of Birth</label>
+                    <div class="col-sm-10">
+                      <input type="date" formControlName="student_Date_Of_Birth" class="form-control" id="input_student_Date_Of_Birth">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                 <label for="input_student_Department" class="col-sm-2 col-form-label"> Department </label> 
+                <div class="col-sm-10">
+                    <input type="text" formControlName="student_Department" class="form-control" id="input_student_Department">
+                </div>
+               </div>
+               <div class="row mb-3">
+                <label for="input_student_joining_Year" class="col-sm-2 col-form-label">Joining Year</label> 
+               <div class="col-sm-10">
+                   <input type="number" formControlName="student_joining_Year" class="form-control" id="input_student_joining_Year" ngminlength="4" ngmaxlength="4">
+               </div>
+              </div>
+              <div class="row mb-3">
+                <label for="input_student_Contact_Number" class="col-sm-2 col-form-label">Mobile Number</label> 
+               <div class="col-sm-10">
+                   <input type="text" formControlName="student_Contact_Number" class="form-control" id="input_student_Contact_Number" ngminlength="10" ngmaxlength="10">
+               </div>
+              </div>
+              </form>
+ <!-- Form End-->
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAdd"  class="btn btn-primary" (click)="postStudentDetails()">Add</button>
+          <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)="updateStudentDetails()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <router-outlet></router-outlet>

@@ -1,0 +1,13 @@
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+  background-color: rgb(123, 194, 190);
+}
+tbody {
+    vertical-align: middle;
+    border: 1px;
+    border-color: rgb(167, 209, 16);
+    column-span: 0px;
+    column-fill: balance;
+}
