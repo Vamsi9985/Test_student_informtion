@@ -20,12 +20,12 @@ export class StudentInformationComponent implements OnInit {
     private api :ApiService) { }
   ngOnInit(): void {
    this.formvalue = this.formbuilder.group({
-   student_Id : [''],
-   student_Name : [''],
-   student_Date_Of_Birth : [''],
-   student_Department : [''],
-   student_joining_Year : [''],
-   student_Contact_Number : ['']
+    studentId : [''],
+    studentName : [''],
+    studentDateOfBirth : [''],
+    studentDepartment : [''],
+    studentJoiningYear : [''],
+    studentContactNumber : ['']
    })
    this.getAllstudent();
   }
@@ -35,12 +35,12 @@ export class StudentInformationComponent implements OnInit {
    this.showUpdate = false;
  }
   postStudentDetails(){
-    this.studentModelObj.student_Id = this.formvalue.value.student_Id;
-    this.studentModelObj.student_Name = this.formvalue.value.student_Name;
-    this.studentModelObj.student_Date_Of_Birth = this.formvalue.value.student_Date_Of_Birth;
-    this.studentModelObj.student_Department = this.formvalue.value.student_Department;
-    this.studentModelObj.student_joining_Year = this.formvalue.value.student_joining_Year;
-    this.studentModelObj.student_Contact_Number = this.formvalue.value.student_Contact_Number;
+    this.studentModelObj.studentId = this.formvalue.value.studentId;
+    this.studentModelObj.studentName = this.formvalue.value.student_Name;
+    this.studentModelObj.studentDateOfBirth = this.formvalue.value.student_Date_Of_Birth;
+    this.studentModelObj.studentDepartment = this.formvalue.value.student_Department;
+    this.studentModelObj.studentJoiningYear = this.formvalue.value.student_joining_Year;
+    this.studentModelObj.studentContactNumber = this.formvalue.value.student_Contact_Number;
 
     this.api.postStudent(this.studentModelObj)
     .subscribe(res=>{
@@ -73,20 +73,20 @@ export class StudentInformationComponent implements OnInit {
   onEdit(row: any){
     this.showAdd = false;
    this.showUpdate = true;
-    this.studentModelObj.student_Id = row.id;
-    this.formvalue.controls['student_Name'].setValue(row.student_Name)
-    this.formvalue.controls['student_Date_Of_Birth'].setValue(row.student_Date_Of_Birth)
-    this.formvalue.controls['student_Department'].setValue(row.student_Department)
-    this.formvalue.controls['student_joining_Year'].setValue(row.student_joining_Year)
-    this.formvalue.controls['student_Contact_Number'].setValue(row.student_Contact_Number)
+    this.studentModelObj.studentId = row.id;
+    this.formvalue.controls['studentName'].setValue(row.studentName)
+    this.formvalue.controls['studentDateOfBirth'].setValue(row.studentDateOfBirth)
+    this.formvalue.controls['studentDepartment'].setValue(row.studentDepartment)
+    this.formvalue.controls['studentJoiningYear'].setValue(row.studentJoiningYear)
+    this.formvalue.controls['studentContactNumber'].setValue(row.studentContactNumber)
   }
   updateStudentDetails(){
-    this.studentModelObj.student_Name = this.formvalue.value.student_Name;
-    this.studentModelObj.student_Date_Of_Birth = this.formvalue.value.student_Date_Of_Birth;
-    this.studentModelObj.student_Department = this.formvalue.value.student_Department;
-    this.studentModelObj.student_joining_Year = this.formvalue.value.student_joining_Year;
-    this.studentModelObj.student_Contact_Number = this.formvalue.value.student_Contact_Number;
-    this.api.updateStudent(this.studentModelObj,this.studentModelObj.student_Id)
+    this.studentModelObj.studentName = this.formvalue.value.studentName;
+    this.studentModelObj.studentDateOfBirth = this.formvalue.value.studentDateOfBirth;
+    this.studentModelObj.studentDepartment = this.formvalue.value.studentDepartment;
+    this.studentModelObj.studentJoiningYear = this.formvalue.value.studentJoiningYear;
+    this.studentModelObj.studentContactNumber = this.formvalue.value.studentContactNumber;
+    this.api.updateStudent(this.studentModelObj,this.studentModelObj.studentId)
     .subscribe(res=>{
       alert("Updated student details");
       $("#").modal("hide");

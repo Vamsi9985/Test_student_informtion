@@ -11,7 +11,7 @@
   <!-- Nav bar ending-->
   <!-- student information table start-->
   <div class="container">
-  <table class="table mt-3"  *ngIf="tablestatus">
+  <table class="table table-bordered"  *ngIf="tablestatus">
     <thead>
       <tr>
         <th scope="col">Student ID</th>
@@ -55,39 +55,39 @@
             <!-- Form start-->
             <form [formGroup]="formvalue">
                 <div class="row mb-3">
-                    <label for="input_student_ID" class="col-sm-2 col-form-label">Student ID</label>
+                    <label for="studentId" class="col-sm-2 col-form-label">Student ID</label>
                     <div class="col-sm-10">
-                      <input type="text"  formControlName="student_Id" class="form-control" id="input_student_ID">
+                      <input type="text"  formControlName="studentId" class="form-control" id="input_student_ID">
                     </div>
                </div>
                 <div class="row mb-3">
-                  <label for="input_student_Name" class="col-sm-2 col-form-label">Student Name</label>
+                  <label for="studentName" class="col-sm-2 col-form-label">Student Name</label>
                 <div class="col-sm-10">
-                    <input type="text" formControlName="student_Name" class="form-control" id="input_student_name">
+                    <input type="text" formControlName="studentName" class="form-control" id="input_student_name">
                 </div>
             </div> 
                  <div class="row mb-3">
-                    <label for="input_student_Date_Of_Birth" class="col-sm-2 col-form-label">Student Date of Birth</label>
+                    <label for="studentDateOfBirth" class="col-sm-2 col-form-label">Student Date of Birth</label>
                     <div class="col-sm-10">
-                      <input type="date" formControlName="student_Date_Of_Birth" class="form-control" id="input_student_Date_Of_Birth">
+                      <input type="date" formControlName="studentDateOfBirth" class="form-control" id="input_student_Date_Of_Birth">
                     </div>
                 </div>
                 <div class="row mb-3">
-                 <label for="input_student_Department" class="col-sm-2 col-form-label"> Department </label> 
+                 <label for="studentDepartment" class="col-sm-2 col-form-label"> Department </label> 
                 <div class="col-sm-10">
-                    <input type="text" formControlName="student_Department" class="form-control" id="input_student_Department">
+                    <input type="text" formControlName="studentDepartment" class="form-control" id="input_student_Department">
                 </div>
                </div>
                <div class="row mb-3">
-                <label for="input_student_joining_Year" class="col-sm-2 col-form-label">Joining Year</label> 
+                <label for="studentJoiningYear" class="col-sm-2 col-form-label">Joining Year</label> 
                <div class="col-sm-10">
-                   <input type="number" formControlName="student_joining_Year" class="form-control" id="input_student_joining_Year" ngminlength="4" ngmaxlength="4">
+                   <input type="number" formControlName="studentJoiningYear" class="form-control" id="input_student_joining_Year" ngminlength="4" ngmaxlength="4">
                </div>
               </div>
               <div class="row mb-3">
-                <label for="input_student_Contact_Number" class="col-sm-2 col-form-label">Mobile Number</label> 
+                <label for="studentContactNumber" class="col-sm-2 col-form-label">Mobile Number</label> 
                <div class="col-sm-10">
-                   <input type="text" formControlName="student_Contact_Number" class="form-control" id="input_student_Contact_Number" ngminlength="10" ngmaxlength="10">
+                   <input type="text" formControlName="studentContactNumber" class="form-control" id="input_student_Contact_Number" ngminlength="10" ngmaxlength="10">
                </div>
               </div>
               </form>
