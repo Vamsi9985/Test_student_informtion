@@ -42,6 +42,9 @@ export class StudentInformationComponent implements OnInit {
     this.studentModelObj.studentJoiningYear = this.formvalue.value.student_joining_Year;
     this.studentModelObj.studentContactNumber = this.formvalue.value.student_Contact_Number;
 
+
+    
+
     this.api.postStudent(this.studentModelObj)
     .subscribe(res=>{
       console.log(res);
